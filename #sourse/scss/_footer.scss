@@ -1,0 +1,45 @@
+//====================================================================================================
+.footer {
+	background-color: #3c3c3c;
+	padding: 45px 0;
+	position: relative;
+	z-index: 5;
+	// .footer__body
+	&__body {
+		text-align: center;
+	}
+	// .footer__logo
+	&__logo {
+		display: inline-block;
+		margin: 0px 0px 40px 0px;
+	}
+	// .footer__menu
+	&__menu {
+		text-align: center;
+	}
+	// .footer__list
+	&__list {
+		@include flexbox();
+		justify-content: center;
+		align-items: center;
+		margin: 0px 0px 35px 0px;
+		li {
+			margin: 0px 15px;
+		}
+	}
+	// .footer__link
+	&__link {
+		color: #a4a4a4;
+		font-size: 14px;
+		font-weight: 400;
+		&:hover {
+			color: #fff;
+		}
+	}
+	// .footer__text
+	&__text {
+		color: #6c6c6c;
+		font-size: 14px;
+	}
+}
+//====================================================================================================

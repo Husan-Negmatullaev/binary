@@ -1,0 +1,682 @@
+//<МИКСИНЫ>===============================================================================================
+@import "_mixins";
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+@font-face {
+	font-family: "Conv_MyriadPro-Regular";
+	src: url("fonts/MyriadPro-Regular.eot");
+	src: local("☺"), url("fonts/MyriadPro-Regular.woff") format("woff"),
+		url("fonts/MyriadPro-Regular.ttf") format("truetype"), url("fonts/MyriadPro-Regular.svg") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily: "Lato";
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth: 320px;
+$mw: 1100;
+$md1: $mw + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "_null";
+body {
+	color: #000;
+	font-size: 14px;
+	&.lock {
+		overflow: hidden;
+	}
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	@include flexbox();
+	flex-direction: column;
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	&.loaded {
+	}
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+	max-width: $mw + px;
+	margin: 0 auto;
+	width: 100%;
+	@media (max-width: $md1+px) {
+		max-width: 970px;
+	}
+	@media (max-width: $md2+px) {
+		max-width: 750px;
+	}
+	@media (max-width: $md3+px) {
+		max-width: none;
+		padding: 0 10px;
+	}
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "_forms";
+@import "_ui";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "../../js/fancybox/jquery.fancybox.scss";
+//@import "_datepicker";
+//@import "_fontawesome";
+//@import "popover.min.scss";
+//@import "_pagging";
+//@import "_icons";
+//@import "_popup";
+@import "_baguetteBox";
+@import "_header";
+@import "_footer";
+//@import "_home";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+// Шаблоны
+%Bebas {
+}
+
+//====================================================================================================
+
+.mainblock {
+	flex: 1 1 auto;
+	position: relative;
+	@include flexbox();
+	justify-content: center;
+	text-align: center;
+	padding: 50px 0;
+	
+	@media screen and (min-width: $md3+px), screen and (max-height: 600px) {
+		padding: 20px 0;
+	}
+
+	&__content {
+		position: relative;
+		z-index: 1;
+		flex: 1 1 auto;
+		.container {
+			@include flexbox();
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			height: 100%;
+		}
+	}
+
+	// .mainblock__logo
+
+	&__logo {
+
+	}
+
+	// .mainblock__text
+
+	&__text {
+		color: #ffffff;
+		position: relative;
+		padding: 0 0 40px 0;
+		margin: 30px 0;
+		&::after {
+			content: '';
+			position: absolute;
+			width: 105px;
+			height: 2px;
+			background: #fff;
+			left: 50%;
+			margin: 0 0 0 -52.98px;
+			bottom: 0;
+		}
+	}
+
+	// .mainblock__title
+
+	&__title {
+		font-size: 34px;
+		line-height: 40 / 34 * 100%;
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 5.43px;
+		margin: 0 0 10px 0;
+		@media screen and (min-width: $md3+px), screen and (max-height: 600px) {
+			font-size: 25px;
+		}
+	}
+
+	// .mainblock__subtitle
+
+	&__subtitle {
+		font-size: 26px;
+		font-weight: 400;
+		letter-spacing: 4.15px;
+	}
+
+	// .mainblock__footer
+
+	&__footer {
+		@include flexboxinline();
+		flex-direction: column;
+	}
+
+	// .mainblock__btn
+
+	&__btn {
+		margin: 0 0 60px 0;
+		@media screen and (max-width: $md3+px), screen and (max-height: 600px) {
+			margin: 0 0 30px 0;
+		}
+	}
+
+	// .mainblock__arrow
+
+	// .mainblock__image
+
+	&__image {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+}
+
+.content {
+	position: relative;
+	z-index: 100;
+	background: #fff;
+}
+.menu {
+	padding: 22px 0;
+	border-bottom: 1px solid #f2f2f2;
+	&_mb {
+		margin: 0 0 130px 0;
+		@media (max-width: $md2+px) {
+			margin: 0 0 50px 0;		
+		}
+		@media (max-width: $md3+px) {
+			margin: 0 0 30px 0;		
+		}
+	}
+	@media (max-width: $md4+px) {
+		padding: 22px 0 22px 0;
+	}
+	&__items {
+
+	}
+
+	&__list {
+		@include flexbox();
+		justify-content: center;
+		align-items: center;
+
+		li {
+			margin: 0 25px;
+			@media (max-width: $md3+px) {
+				margin: 0 15px 10px 15px;
+			}
+			@media (max-width: $md3+px) {
+				flex: 0 1 25%;
+			}
+		}
+		@media (max-width: $md3+px) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__link {
+		color: #3c3c3c;
+		font-size: 15px;
+		text-transform: uppercase;
+		font-weight: 700;
+		@include anim(0.3s, 0s);
+		&_act {
+			color: #ada074;
+		}
+		&:hover {
+			color: #ada074;
+		}
+	}
+}
+
+
+.about {
+	padding: 0 0 60px 0;
+	@media (max-width: $md3+px) {
+		padding: 0 0 10px 0;		
+	}
+	// .about__header-block
+
+	&__header-block {
+		margin: 0 0 65px 0;
+		@media (max-width: $md3+px) {
+			margin: 0 0 30px 0;		
+		}
+	}
+
+	// .about__body
+
+	&__body {
+		text-align: center;
+	}
+
+	// .about__row
+
+	&__row {
+		@include flexboxinline();
+		margin: 0 -15px;
+		@media (max-width: $md3+px) {
+			display: block;
+		}
+	}
+
+	&__item {
+		text-align: center;
+		max-width: 260px;
+		@media (max-width: $md3+px) {
+			max-width: none;
+		}
+	}
+
+	// .about__column
+
+	&__column {
+		margin: 0 0 30px 0;
+		flex: 0 1 33.333%;
+		padding: 0 15px;
+	}
+
+	// .about__icon
+
+	&__icon {
+		width: 92px;
+		height: 92px;
+		border: 1px solid #f2f2f2;
+		border-radius: 50%;
+		@include flexboxinline();
+		align-items: center;
+		justify-content: center;
+		margin: 0 0 40px 0;
+		&_l {
+			img{
+				position: relative;
+				left: 5px;
+			}
+		}
+		@media (max-width: $md3+px) {
+			margin: 0 0 15px 0;
+		}
+	}
+
+	// .about__title
+
+	&__title {
+		margin: 0 0 33px 0;
+		font-size: 22px;
+		text-transform: uppercase;
+		letter-spacing: 3.6px;
+		@media (max-width: $md2+px) {
+			font-size: 18px;
+			margin: 0 0 25px 0;
+		}
+		@media (max-width: $md3+px) {
+			margin: 0 0 15px 0;
+		}
+	}
+
+	// .about__text
+
+	&__text {
+		color: #868585;
+		font-size: 14px;
+		line-height: 26 / 14 * 100%;
+		font-weight: 300;
+	}
+}
+
+.portfolio {
+	background: #f3f3f3;
+	padding: 105px 0 60px 0;
+	@media (max-width: $md2+px) {
+		padding: 50px 0 40px 0;
+	}
+	// .portfolio__container
+
+	&__container {
+	}
+
+	// .portfolio__header-block
+
+	&__header-block {
+		margin: 0 0 50px 0;
+		@media (max-width: $md2+px) {
+			margin: 0 0 30px 0;
+		}
+		@media (max-width: $md3+px) {
+			margin: 0 0 20px 0;
+		}
+	}
+
+	// .portfolio__filter
+
+	&__filter {
+		margin: 0 0 135px 0;
+		@media (max-width: $md2+px) {
+			margin: 0 0 50px 0;
+		}
+		@media (max-width: $md3+px) {
+			margin: 0 0 20px 0;
+		}
+	}
+
+	// .portfolio__items
+
+	&__items {
+		@include flexbox();
+		margin: 0 -15px;
+		flex-wrap: wrap;
+	}
+
+	// .portfolio__column
+
+	&__column {
+		flex: 0 1 50%;
+		padding: 0 15px;
+		margin: 0 0 30px 0;
+		@media (max-width: $md3+px) {
+			flex: 1 1 100%;
+			margin: 0 0 20px 0;
+		}
+	}
+
+	// .portfolio__item
+
+	&__item {
+		img {
+			max-width: 100%;
+		}
+	}
+
+	// .portfolio__footer
+
+	&__footer {
+		text-align: center;
+		padding: 35px 0 0 0;
+		@media (max-width: $md3+px) {
+			padding: 15px 0 0 0;
+		}
+	}
+
+	&__btn {
+
+	}
+}
+.filter {
+
+	// .filter__list
+
+	&__list {
+		@include flexbox();
+		justify-content: center;
+		align-items: center;
+	}
+
+	// .filter__item
+
+	&__item {
+		color: #3c3c3c;
+		font-size: 15px;
+		text-transform: uppercase;
+		font-weight: 700;
+		margin: 0 25px;
+		cursor: pointer;
+		&.active {
+			color: #ada074;
+		}
+		@media (max-width: $md3+px) {
+			margin: 0 15px;
+		}
+	}
+}
+
+.partners {
+	background: url('../img/partners/bg.jpg') center / cover no-repeat;
+	padding: 100px 0 70px 0;
+	@media (max-width: $md3+px) {
+		padding: 30px 0 0 0;
+	}
+	// .partners__container
+
+	&__container {
+	}
+
+	// .partners__title
+
+	&__title {
+		font-size: 30px;
+		color: #fff;
+		font-weight: 300;
+		margin: 0 0 90px 0;
+		text-align: center;
+		@media (max-width: $md3+px) {
+			margin: 0 0 30px 0;
+		}
+	}
+
+	// .partners__items
+
+	&__items {
+		@include flexbox();
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		flex-wrap: wrap;
+	}
+
+	// .partners__column
+
+	&__column {
+		padding: 0 50px;
+		margin: 0 0 30px 0;
+		@media (max-width: $md3+px) {
+			padding: 0 30px;
+		}
+	}
+
+	// .partners__item
+
+	&__item {
+	}
+}
+
+.contacts {
+	padding: 180px 0 80px 0;
+	@media (max-width: $md2+px) {
+		padding: 80px 0 50px 0;
+	}
+
+	@media (max-width: $md3+px) {
+		padding: 30px 0 30px 0;
+	}
+	// .contacts__container
+
+	&__container {
+	}
+
+	// .contacts__header-block
+
+	&__header-block {
+		margin: 0 0 120px 0;
+		@media (max-width: $md2+px) {
+			margin: 0 0 50px 0;
+		}
+		@media (max-width: $md2+px) {
+			margin: 0 0 30px 0;
+		}
+	}
+
+	// .contacts__body
+
+	&__body {
+		@include flexbox();
+		margin: 0 -25px;
+		@media (max-width: $md3+px) {
+			display: block;
+		}
+	}
+
+	// .contacts__column
+
+	&__column {
+		flex: 0 1 50%;
+		padding: 0 25px;
+	}
+
+	// .contacts__form
+
+	&__form {
+		text-align: right;
+		@media (max-width: $md3+px) {
+			text-align: left;
+			margin: 0 0 30px 0;
+		}
+	}
+
+	// .contacts__content
+
+	&__content {
+		max-width: 260px;
+		@media (max-width: $md3+px) {
+			max-width: none;
+		}
+	}
+
+	// .contacts__text
+
+	&__text {
+		font-size: 14px;
+		font-weight: 300;
+		line-height: 26 / 14 * 100%;
+		margin: 0 0 35px 0;
+	}
+
+	// .contacts__name
+
+	&__name {
+		font-weight: 700;
+		font-size: 14px;
+		margin: 0 0 25px 0;
+	}
+
+	// .contacts__social
+
+	&__social {
+	}
+
+	// .contacts__email
+
+	&__email {
+		font-size: 14px;
+		a {
+			font-weight: 700;
+			color: #000;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+} 
+.form-contacts {
+	&__body {
+		max-width: 385px;
+		display: inline-block;
+		width: 100%;
+		@media (max-width: $md3+px) {
+			max-width: none;
+		}
+	}
+	// .form-contacts__row
+
+	&__row {
+		@include flexbox();
+		margin: 0 -15px 70px;
+		@media (max-width: $md3+px) {
+			margin: 0 -15px 30px;
+		}
+		@media (max-width: $md4+px) {
+			display: block;
+		}
+	}
+
+	// .form-contacts__column
+
+	&__column {
+		flex: 0 1 50%;
+		padding: 0 15px;
+		@media (max-width: $md4+px) {
+			&:first-child {
+				margin: 0 0 30px 0;
+			}
+		}
+	}
+
+	// .form-contacts__input
+
+	&__input {
+	}
+
+	// .form-contacts__label
+
+	&__label {
+		font-size: 14px;
+		font-weight: 700;
+		margin: 0 0 10px 0;
+		text-transform: uppercase;
+		text-align: left;
+	}
+
+	&__btn.btn {
+		margin: 35px 0 0 0;
+		@media (max-width: $md4+px) {
+			display: block;
+			width: 100%;
+		}
+	}
+}
+.social {
+	margin: 0 0 15px 0;
+	@include flexbox();
+	// .social__item
+
+	&__item {
+		margin: 0 15px 0 0;
+	}
+}
+
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
